@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Bisnis sosial UMKM yang memberdayakan petani lokal melalui produk berkualitas berkelanjutan."/>
+  <meta name="keywords" content="UMKM, bisnis sosial, petani lokal, produk organik, dampak sosial"/>
+  <meta name="author" content="Nama Bisnis Anda"/>
+  <meta property="og:title" content="Nama Bisnis - Memberdayakan Petani, Menghasilkan Kualitas"/>
+  <meta property="og:description" content="Bisnis sosial yang menghubungkan petani lokal dengan pasar melalui produk berkualitas berkelanjutan."/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  
+  <title>Nama Bisnis - Memberdayakan Petani, Menghasilkan Kualitas</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            earth: {
+              brown: '#5D4037',
+              green: '#6B8E23',
+              cream: '#F5F5DC',
+              light: '#FFF9F0',
+              dark: '#3E2723'
+            }
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  
+  <!-- Custom Styles -->
+  <style>
+    /* Base Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      color: #333; 
+      background-color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Smooth Scroll */
+    html { scroll-behavior: smooth; }
+    
+    /* Custom Utilities */
+    .section-padding { padding: 5rem 1.5rem; }
+    .container-custom { max-width: 1200px; margin: 0 auto; }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1500382017468-9049fed18f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+    
+    /* Card Hover Effects */
+    .card-hover {
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+    }
+    
+    /* Animated Counter */
+    .counter {
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: #6B8E23;
+      display: block;
+    }
+    
+    /* Product Card */
+    .product-tag {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin: 0.25rem;
+    }
+    .tag-organic { background: #E8F5E9; color: #2E7D32; }
+    .tag-vegan { background: #FFF3E0; color: #EF6C00; }
+    .tag-gluten { background: #E3F2FD; color: #1565C0; }
+    
+    /* Testimonial Carousel */
+    .testimonial-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      scrollbar-width: none;
+    }
+    .testimonial-carousel::-webkit-scrollbar { display: none; }
+    .testimonial-card {
+      scroll-snap-align: start;
+      min-width: 300px;
+      max-width: 400px;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+    
+    /* Dark Mode */
+    .dark body {
+      background-color: #1a1a1a;
+      color: #f0f0f0;
+    }
+    .dark .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1500382017468-9049fed18f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    }
+    
+    /* Accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #6B8E23;
+      color: white;
+      padding: 8px 16px;
+      z-index: 100;
+      transition: top 0.3s;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .section-padding { padding: 3rem 1rem; }
+      .counter { font-size: 2rem; }
+      .hero { min-height: 500px; }
+    }
+  </style>
+  
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Nama Bisnis Anda",
+    "url": "https://namabisnisanda.id",
+    "logo": "https://namabisnisanda.id/logo.png",
+    "description": "Bisnis sosial yang memberdayakan petani lokal melalui produk berkualitas berkelanjutan.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kota Anda",
+      "addressRegion": "Provinsi",
+      "addressCountry": "ID"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "halo@namabisnisanda.id",
+      "telephone": "+62-21-12345678"
+    }
+  }
+  </script>
+</head>
+<body class="antialiased">
+  <!-- Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link">Langsung ke konten utama</a>
+
+  <!-- Navigation -->
+  <header class="fixed w-full bg-white/95 dark:bg-earth-dark/95 backdrop-blur-sm z-50 shadow-sm">
+    <nav class="container-custom mx-auto px-4 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="#" class="flex items-center space-x-2" aria-label="Beranda">
+        <div class="w-10 h-10 bg-earth-green rounded-full flex items-center justify-center">
+          <span class="text-white font-bold text-xl">N</span>
+        </div>
+        <span class="font-bold text-lg text-earth-brown dark:text-earth-cream">NamaBisnis</span>
+      </a>
+      
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#tentang" class="text-earth-brown dark:text-earth-cream hover:text-earth-green transition font-medium">Tentang</a>
+        <a href="#produk" class="text-earth-brown dark:text-earth-cream hover:text-earth-green transition font-medium">Produk</a>
+        <a href="#dampak" class="text-earth-brown dark:text-earth-cream hover:text-earth-green transition font-medium">Dampak</a>
+        <a href="#kontak" class="text-earth-brown dark:text-earth-cream hover:text-earth-green transition font-medium">Kontak</a>
+        
+        <!-- Dark Mode Toggle -->
+        <button id="darkModeToggle" class="p-2 rounded-full hover:bg-earth-cream/30 transition" aria-label="Toggle dark mode">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-earth-brown dark:text-earth-cream" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+        
+        <a href="#kontak" class="bg-earth-green hover:bg-green-700 text-white px-5 py-2 rounded-full font-medium transition shadow-md hover:shadow-lg">
+          Kolaborasi
+        </a>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuButton" class="md:hidden p-2 text-earth-brown dark:text-earth-cream" aria-label="Toggle menu" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed inset-y-0 right-0 w-64 bg-white dark:bg-earth-dark shadow-lg z-40 p-6 flex flex-col space-y-6">
+      <div class="flex justify-between items-center">
+        <span class="font-bold text-lg text-earth-brown dark:text-earth-cream">Menu</span>
+        <button id="closeMobileMenu" class="p-1 text-earth-brown dark:text-earth-cream" aria-label="Tutup menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <a href="#tentang" class="text-earth-brown dark:text-earth-cream hover:text-earth-green transition font-medium py-2">Tentang</a>
+      <a href="#produk" class="text-earth-brown dark:text-earth-cream hover:text-earth-green transition font-medium py-2">Produk</a>
+      <a href="#dampak" class="text-earth-brown dark:text-earth-cream hover:text-earth-green transition font-medium py-2">Dampak</a>
+      <a href="#kontak" class="text-earth-brown dark:text-earth-cream hover:text-earth-green transition font-medium py-2">Kontak</a>
+      <button id="mobileDarkModeToggle" class="flex items-center space-x-2 text-earth-brown dark:text-earth-cream py-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+        </svg>
+        <span>Mode Gelap</span>
+      </button>
+      <a href="#kontak" class="bg-earth-green hover:bg-green-700 text-white px-5 py-3 rounded-full font-medium transition text-center mt-4">
+        Kolaborasi
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    
+    <!-- HERO SECTION -->
+    <section class="hero" data-aos="fade-in">
+      <div class="container-custom px-4 max-w-4xl mx-auto text-center" data-aos="fade-up" data-aos-delay="200">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          Memberdayakan Petani Lokal,<br/>
+          <span class="text-earth-cream">Menghasilkan Kualitas Terbaik</span>
+        </h1>
+        <p class="text-lg md:text-xl mb-10 text-earth-cream/95 max-w-2xl mx-auto">
+          Kami menghubungkan petani dan pengrajin lokal dengan pasar melalui produk berkelanjutan yang berkualitas tinggi, menciptakan dampak sosial yang nyata.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="#tentang" class="bg-white text-earth-brown hover:bg-earth-cream px-8 py-4 rounded-full font-semibold transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            Pelajari Lebih Lanjut
+          </a>
+          <a href="#produk" class="bg-earth-green hover:bg-green-700 text-white px-8 py-4 rounded-full font-semibold transition shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            Lihat Produk
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR STORY / TENTANG KAMI -->
+    <section id="tentang" class="section-padding bg-earth-light dark:bg-earth-dark/30">
+      <div class="container-custom mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold text-earth-brown dark:text-earth-cream mb-4">Cerita Kami</h2>
+          <p class="text-gray-700 dark:text-gray-300 text-lg">
+            Didirikan pada 2020, kami percaya bahwa bisnis yang baik harus memberikan dampak positif. 
+            Kami bekerja langsung dengan petani dan pengrajin lokal untuk menciptakan produk berkualitas 
+            sambil memberdayakan komunitas.
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <!-- Pilar 1 -->
+          <div class="card-hover bg-white dark:bg-earth-dark p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="w-16 h-16 bg-earth-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-earth-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-earth-brown dark:text-earth-cream mb-3">Petani Berkelanjutan</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Kami mendukung praktik pertanian organik dan berkelanjutan yang menjaga kelestarian alam 
+              sekaligus meningkatkan kesejahteraan petani lokal.
+            </p>
+          </div>
+          
+          <!-- Pilar 2 -->
+          <div class="card-hover bg-white dark:bg-earth-dark p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="w-16 h-16 bg-earth-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-earth-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 000-2.856 2 2 0 00-2.856 0 2 2 0 000 2.856 2 2 0 002.856 0zM12 21a9 9 0 100-18 9 9 0 000 18z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-earth-brown dark:text-earth-cream mb-3">Proses Berkualitas</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Setiap produk diproses dengan standar kualitas tinggi oleh pengrajin terampil, 
+              memastikan keaslian rasa dan nilai gizi yang terjaga.
+            </p>
+          </div>
+          
+          <!-- Pilar 3 -->
+          <div class="card-hover bg-white dark:bg-earth-dark p-8 rounded-2xl text-center" data-aos="fade-up" data-aos-delay="300">
+            <div class="w-16 h-16 bg-earth-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-earth-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-earth-brown dark:text-earth-cream mb-3">Inovasi & Jangkauan</h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Kami berinovasi dalam distribusi dan pemasaran untuk menjangkau pasar yang lebih luas, 
+              membawa produk lokal ke tingkat nasional dan internasional.
+            </p>
+          </div>
+        </div>
+        
+        <!-- Visual: Foto Tim/Proses -->
+        <div class="rounded-2xl overflow-hidden shadow-xl" data-aos="fade-up">
+          <img 
+            src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+            alt="Tim kami bersama petani lokal dalam proses produksi" 
+            class="w-full h-80 md:h-96 object-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUK KAMI -->
+    <section id="produk" class="section-padding bg-white dark:bg-earth-dark">
+      <div class="container-custom mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold text-earth-brown dark:text-earth-cream mb-4">Produk Kami</h2>
+          <p class="text-gray-700 dark:text-gray-300 text-lg">
+            Produk-produk pilihan yang dihasilkan dari bahan baku lokal berkualitas, 
+            diproses dengan cinta dan komitmen terhadap keberlanjutan.
+          </p>
+        </div>
+        
+        <!-- Filter Categories (Optional) -->
+        <div class="flex flex-wrap justify-center gap-3 mb-10" data-aos="fade-up">
+          <button class="px-4 py-2 bg-earth-green text-white rounded-full text-sm font-medium hover:bg-green-700 transition">Semua</button>
+          <button class="px-4 py-2 bg-earth-cream text-earth-brown rounded-full text-sm font-medium hover:bg-earth-brown/10 transition">Makanan</button>
+          <button class="px-4 py-2 bg-earth-cream text-earth-brown rounded-full text-sm font-medium hover:bg-earth-brown/10 transition">Minuman</button>
+          <button class="px-4 py-2 bg-earth-cream text-earth-brown rounded-full text-sm font-medium hover:bg-earth-brown/10 transition">Kerajinan</button>
+        </div>
+        
+        <!-- Product Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <!-- Product Card 1 -->
+          <div class="card-hover bg-white dark:bg-earth-dark rounded-2xl overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="100">
+            <div class="relative">
+              <img 
+                src="https://images.unsplash.com/photo-1606312619070-2e58a598c9d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                alt="Tepung Mocaf Organik" 
+                class="w-full h-48 object-cover"
+                loading="lazy"
+              />
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1">
+                <span class="product-tag tag-organic">Organic</span>
+                <span class="product-tag tag-gluten">Gluten-Free</span>
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="font-bold text-lg text-earth-brown dark:text-earth-cream mb-2">Tepung Mocaf Organik</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                Tepung singkong fermentasi berkualitas tinggi, cocok untuk berbagai olahan makanan sehat.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-earth-green">Rp 25.000</span>
+                <a href="#" class="text-earth-green hover:text-green-700 font-medium text-sm transition">Detail →</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product Card 2 -->
+          <div class="card-hover bg-white dark:bg-earth-dark rounded-2xl overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="200">
+            <div class="relative">
+              <img 
+                src="https://images.unsplash.com/photo-1563240670-a7c7fac1b778?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                alt="Kopi Arabika Single Origin" 
+                class="w-full h-48 object-cover"
+                loading="lazy"
+              />
+              <div class="absolute top-3 left-3">
+                <span class="product-tag tag-organic">Organic</span>
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="font-bold text-lg text-earth-brown dark:text-earth-cream mb-2">Kopi Arabika Single Origin</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                Kopi pilihan dari dataran tinggi Gayo, dipetik dan diproses secara manual oleh petani lokal.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-earth-green">Rp 45.000</span>
+                <a href="#" class="text-earth-green hover:text-green-700 font-medium text-sm transition">Detail →</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product Card 3 -->
+          <div class="card-hover bg-white dark:bg-earth-dark rounded-2xl overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="300">
+            <div class="relative">
+              <img 
+                src="https://images.unsplash.com/photo-1603532647870-4f5f7f8f8e3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                alt="Madu Hutan Alami" 
+                class="w-full h-48 object-cover"
+                loading="lazy"
+              />
+              <div class="absolute top-3 left-3 flex flex-wrap gap-1">
+                <span class="product-tag tag-organic">Organic</span>
+                <span class="product-tag tag-vegan">Vegan</span>
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="font-bold text-lg text-earth-brown dark:text-earth-cream mb-2">Madu Hutan Alami</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                Madu murni dari hutan tropis Indonesia, dikumpulkan secara berkelanjutan oleh komunitas lokal.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-earth-green">Rp 65.000</span>
+                <a href="#" class="text-earth-green hover:text-green-700 font-medium text-sm transition">Detail →</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Product Card 4 -->
+          <div class="card-hover bg-white dark:bg-earth-dark rounded-2xl overflow-hidden shadow-md" data-aos="fade-up" data-aos-delay="400">
+            <div class="relative">
+              <img 
+                src="https://images.unsplash.com/photo-1594381898411-846e7d193c83?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                alt="Kerajinan Anyaman Bambu" 
+                class="w-full h-48 object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="font-bold text-lg text-earth-brown dark:text-earth-cream mb-2">Kerajinan Anyaman Bambu</h3>
+              <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                Produk kerajinan tangan dari bambu berkelanjutan, dibuat oleh pengrajin lokal dengan teknik tradisional.
+              </p>
+              <div class="flex justify-between items-center">
+                <span class="font-bold text-earth-green">Rp 85.000</span>
+                <a href="#" class="text-earth-green hover:text-green-700 font-medium text-sm transition">Detail →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="text-center" data-aos="fade-up">
+          <a href="#" class="inline-block bg-earth-brown hover:bg-earth-dark text-white px-8 py-3 rounded-full font-medium transition shadow-md hover:shadow-lg">
+            Lihat Semua Produk
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DAMPAK SOSIAL / OUR IMPACT -->
+    <section id="dampak" class="section-padding bg-earth-green/5 dark:bg-earth-dark/50" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%236B8E23\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');">
+      <div class="container-custom mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold text-earth-brown dark:text-earth-cream mb-4">Dampak Sosial Kami</h2>
+          <p class="text-gray-700 dark:text-gray-300 text-lg">
+            Setiap pembelian Anda membantu menciptakan perubahan positif bagi petani, pengrajin, 
+            dan komunitas lokal di seluruh Indonesia.
+          </p>
+        </div>
+        
+        <!-- Animated Counters -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          <div class="text-center p-6" data-aos="zoom-in" data-aos-delay="100">
+            <span class="counter" data-target="250">0</span><span class="text-3xl text-earth-green">+</span>
+            <p class="text-gray-700 dark:text-gray-300 mt-2 font-medium">Petani Diberdayakan</p>
+          </div>
+          <div class="text-center p-6" data-aos="zoom-in" data-aos-delay="200">
+            <span class="counter" data-target="120">0</span><span class="text-3xl text-earth-green">+</span>
+            <p class="text-gray-700 dark:text-gray-300 mt-2 font-medium">Pengrajin Terlibat</p>
+          </div>
+          <div class="text-center p-6" data-aos="zoom-in" data-aos-delay="300">
+            <span class="counter" data-target="85">0</span><span class="text-3xl text-earth-green">+</span>
+            <p class="text-gray-700 dark:text-gray-300 mt-2 font-medium">Pemuda Dilibatkan</p>
+          </div>
+          <div class="text-center p-6" data-aos="zoom-in" data-aos-delay="400">
+            <span class="counter" data-target="45">0</span><span class="text-3xl text-earth-green">+</span>
+            <p class="text-gray-700 dark:text-gray-300 mt-2 font-medium">Ton Bahan Baku Diserap</p>
+          </div>
+        </div>
+        
+        <!-- Impact Visual -->
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div data-aos="fade-right">
+            <h3 class="text-2xl font-bold text-earth-brown dark:text-earth-cream mb-4">Membangun Ekosistem Berkelanjutan</h3>
+            <p class="text-gray-700 dark:text-gray-300 mb-6">
+              Kami tidak hanya membeli bahan baku, tetapi juga memberikan pelatihan, akses pasar, 
+              dan pendampingan berkelanjutan untuk meningkatkan kapasitas petani dan pengrajin lokal.
+            </p>
+            <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-earth-green mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Pelatihan pertanian organik dan praktik berkelanjutan</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-earth-green mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Akses pembiayaan dan peralatan produksi yang layak</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-5 w-5 text-earth-green mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>Jaminan harga yang adil dan transparan</span>
+              </li>
+            </ul>
+          </div>
+          <div class="rounded-2xl overflow-hidden shadow-xl" data-aos="fade-left">
+            <img 
+              src="https://images.unsplash.com/photo-1542600176-397e6b62c5f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+              alt="Komunitas petani lokal yang diberdayakan" 
+              class="w-full h-80 object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONI / MEDIA (Optional) -->
+    <section class="section-padding bg-white dark:bg-earth-dark">
+      <div class="container-custom mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+          <h2 class="text-3xl md:text-4xl font-bold text-earth-brown dark:text-earth-cream mb-4">Apa Kata Mereka</h2>
+          <p class="text-gray-700 dark:text-gray-300 text-lg">
+            Testimoni dari mitra, konsumen, dan media yang telah berkolaborasi dengan kami.
+          </p>
+        </div>
+        
+        <!-- Testimonial Carousel -->
+        <div class="testimonial-carousel mb-12" data-aos="fade-up">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card bg-earth-light dark:bg-earth-dark/50 p-6 rounded-2xl shadow-md">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-earth-green rounded-full flex items-center justify-center text-white font-bold mr-4">A</div>
+              <div>
+                <h4 class="font-bold text-earth-brown dark:text-earth-cream">Anita Wijaya</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Pemilik Kafe Sehat, Bandung</p>
+              </div>
+            </div>
+            <p class="text-gray-700 dark:text-gray-300 italic">
+              "Produk dari NamaBisnis selalu konsisten kualitasnya. Pelanggan kami sangat menyukai 
+              tepung mocaf organik mereka. Kolaborasi yang saling menguntungkan!"
+            </p>
+          </div>
+          
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card bg-earth-light dark:bg-earth-dark/50 p-6 rounded-2xl shadow-md">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-earth-green rounded-full flex items-center justify-center text-white font-bold mr-4">B</div>
+              <div>
+                <h4 class="font-bold text-earth-brown dark:text-earth-cream">Budi Santoso</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Petani Kopi, Aceh</p>
+              </div>
+            </div>
+            <p class="text-gray-700 dark:text-gray-300 italic">
+              "Sejak bergabung dengan NamaBisnis, pendapatan kami meningkat 40%. 
+              Mereka tidak hanya membeli, tapi juga membimbing kami untuk meningkatkan kualitas panen."
+            </p>
+          </div>
+          
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card bg-earth-light dark:bg-earth-dark/50 p-6 rounded-2xl shadow-md">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-earth-green rounded-full flex items-center justify-center text-white font-bold mr-4">C</div>
+              <div>
+                <h4 class="font-bold text-earth-brown dark:text-earth-cream">Kompas TV</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">Media Partner</p>
+              </div>
+            </div>
+            <p class="text-gray-700 dark:text-gray-300 italic">
+              "Kisah inspiratif NamaBisnis dalam memberdayakan petani lokal layak menjadi contoh 
+              bagi bisnis sosial lainnya di Indonesia. Kami bangga dapat meliput perjalanan mereka."
+            </p>
+          </div>
+        </div>
+        
+        <!-- Media Logos & Badges -->
+        <div class="text-center" data-aos="fade-up">
+          <p class="text-gray-600 dark:text-gray-400 mb-6">Diliput oleh:</p>
+          <div class="flex flex-wrap justify-center items-center gap-8 opacity-70">
+            <!-- Placeholder for media logos - replace with actual SVG/logos -->
+            <div class="h-10 w-24 bg-gray-200 dark:bg-gray-700 rounded flex items-center justify-center text-xs text-gray-500">Kompas</div>
+            <div class="h-10 w-24 bg-gray-200 dark:bg-gray-700 rounded flex items-center justify-center text-xs text-gray-500">Detik</div>
+            <div class="h-10 w-24 bg-gray-200 dark:bg-gray-700 rounded flex items-center justify-center text-xs text-gray-500">Tempo</div>
+            <div class="h-10 w-24 bg-gray-200 dark:bg-gray-700 rounded flex items-center justify-center text-xs text-gray-500">BBC Indonesia</div>
+          </div>
+          
+          <div class="mt-10 flex flex-wrap justify-center gap-4">
+            <div class="px-4 py-2 bg-earth-cream dark:bg-earth-dark/50 rounded-full text-sm font-medium text-earth-brown dark:text-earth-cream">
+              🌱 Sertifikasi Organik Indonesia
+            </div>
+            <div class="px-4 py-2 bg-earth-cream dark:bg-earth-dark/50 rounded-full text-sm font-medium text-earth-brown dark:text-earth-cream">
+              🏆 Penghargaan UMKM Berdampak 2023
+            </div>
+            <div class="px-4 py-2 bg-earth-cream dark:bg-earth-dark/50 rounded-full text-sm font-medium text-earth-brown dark:text-earth-cream">
+              ♻️ Praktik Bisnis Berkelanjutan
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION / GET IN TOUCH -->
+    <section id="kontak" class="section-padding bg-earth-brown text-white" style="background: linear-gradient(135deg, #5D4037 0%, #3E2723 100%);">
+      <div class="container-custom mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div data-aos="fade-right">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Mari Berkolaborasi untuk Dampak yang Lebih Besar</h2>
+            <p class="text-earth-cream/90 mb-8 text-lg">
+              Apakah Anda tertarik untuk menjadi mitra distribusi, investor sosial, 
+              atau sekadar ingin mengetahui lebih lanjut tentang produk kami? 
+              Hubungi kami hari ini.
+            </p>
+            
+            <!-- Contact Info -->
+            <div class="space-y-4 mb-8">
+              <div class="flex items-start">
+                <svg class="h-6 w-6 text-earth-cream mr-4 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <div>
+                  <p class="font-medium">Email</p>
+                  <a href="mailto:halo@namabisnisanda.id" class="text-earth-cream/80 hover:text-white transition">halo@namabisnisanda.id</a>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <svg class="h-6 w-6 text-earth-cream mr-4 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                <div>
+                  <p class="font-medium">Telepon / WhatsApp</p>
+                  <a href="https://wa.me/6281234567890" class="text-earth-cream/80 hover:text-white transition">+62 812-3456-7890</a>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <svg class="h-6 w-6 text-earth-cream mr-4 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <div>
+                  <p class="font-medium">Alamat</p>
+                  <p class="text-earth-cream/80">Jl. Pertanian No. 123, Kota Hijau, Jawa Barat 40123</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Social Media -->
+            <div class="flex space-x-4">
+              <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition" aria-label="Instagram">
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition" aria-label="Facebook">
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.852V15.466h-3.14v-3.47h3.14V9.564c0-3.112 1.893-4.803 4.659-4.803 1.328 0 2.463.098 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.47h-3.12V24c5.737-.898 10.125-5.862 10.125-11.927z"/></svg>
+              </a>
+              <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition" aria-label="LinkedIn">
+                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              </a>
+              <a href="https://wa.me/6281234567890" class="w-10 h-10 rounded-full bg-green-500 hover:bg-green-600 flex items-center justify-center transition" aria-label="WhatsApp">
+                <svg class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.226 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004c-1.775.001-3.548-.534-5.062-1.547l-.362-.242-3.741.982.998-3.648-.236-.374c-1.023-1.623-1.563-3.49-1.563-5.422 0-5.32 4.336-9.656 9.656-9.656 2.582 0 5.008 1.007 6.837 2.836 1.829 1.828 2.836 4.255 2.836 6.837 0 5.32-4.336 9.656-9.656 9.656z"/></svg>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Contact Form -->
+          <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl" data-aos="fade-left">
+            <form class="space-y-5">
+              <div>
+                <label for="name" class="block text-sm font-medium mb-2">Nama Lengkap</label>
+                <input type="text" id="name" name="name" required 
+                  class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-earth-cream text-white placeholder-earth-cream/70"
+                  placeholder="Nama Anda"/>
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                <input type="email" id="email" name="email" required 
+                  class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-earth-cream text-white placeholder-earth-cream/70"
+                  placeholder="email@anda.com"/>
+              </div>
+              <div>
+                <label for="message" class="block text-sm font-medium mb-2">Pesan</label>
+                <textarea id="message" name="message" rows="4" required 
+                  class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-earth-cream text-white placeholder-earth-cream/70"
+                  placeholder="Tulis pesan Anda di sini..."></textarea>
+              </div>
+              <button type="submit" 
+                class="w-full bg-earth-green hover:bg-green-700 text-white font-medium py-3 px-6 rounded-lg transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                Kirim Pesan
+              </button>
+            </form>
+            <p class="text-earth-cream/70 text-sm mt-4 text-center">
+              Atau hubungi langsung via WhatsApp: 
+              <a href="https://wa.me/6281234567890" class="text-earth-cream hover:underline font-medium">+62 812-3456-7890</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-earth-dark text-earth-cream py-12">
+    <div class="container-custom mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 mb-10">
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <div class="flex items-center space-x-2 mb-4">
+            <div class="w-10 h-10 bg-earth-green rounded-full flex items-center justify-center">
+              <span class="text-white font-bold text-xl">N</span>
+            </div>
+            <span class="font-bold text-xl">NamaBisnis</span>
+          </div>
+          <p class="text-earth-cream/80 mb-4 max-w-md">
+            Memberdayakan petani dan pengrajin lokal melalui produk berkualitas berkelanjutan 
+            untuk menciptakan dampak sosial yang nyata.
+          </p>
+          <a href="#" class="inline-flex items-center text-earth-green hover:text-green-400 transition font-medium">
+            <svg class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download Company Profile (PDF)
+          </a>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-bold text-lg mb-4">Navigasi</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-earth-cream/80 hover:text-white transition">Beranda</a></li>
+            <li><a href="#tentang" class="text-earth-cream/80 hover:text-white transition">Tentang Kami</a></li>
+            <li><a href="#produk" class="text-earth-cream/80 hover:text-white transition">Produk</a></li>
+            <li><a href="#dampak" class="text-earth-cream/80 hover:text-white transition">Dampak Sosial</a></li>
+            <li><a href="#kontak" class="text-earth-cream/80 hover:text-white transition">Kontak</a></li>
+          </ul>
+        </div>
+        
+        <!-- Legal -->
+        <div>
+          <h4 class="font-bold text-lg mb-4">Legal</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-earth-cream/80 hover:text-white transition">Kebijakan Privasi</a></li>
+            <li><a href="#" class="text-earth-cream/80 hover:text-white transition">Syarat & Ketentuan</a></li>
+            <li><a href="#" class="text-earth-cream/80 hover:text-white transition">Pengembalian & Refund</a></li>
+            <li><a href="#" class="text-earth-cream/80 hover:text-white transition">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-earth-cream/20 pt-8 text-center text-earth-cream/70 text-sm">
+        <p>&copy; 2024 NamaBisnis. Semua hak dilindungi. | Dibuat dengan ❤️ untuk dampak sosial</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/6281234567890" 
+     class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg z-50 transition transform hover:scale-110"
+     aria-label="Chat via WhatsApp">
+    <svg class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.226 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004c-1.775.001-3.548-.534-5.062-1.547l-.362-.242-3.741.982.998-3.648-.236-.374c-1.023-1.623-1.563-3.49-1.563-5.422 0-5.32 4.336-9.656 9.656-9.656 2.582 0 5.008 1.007 6.837 2.836 1.829 1.828 2.836 4.255 2.836 6.837 0 5.32-4.336 9.656-9.656 9.656z"/></svg>
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS Animations
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        offset: 100
+      });
+      
+      // Mobile Menu Toggle
+      const mobileMenuButton = document.getElementById('mobileMenuButton');
+      const closeMobileMenu = document.getElementById('closeMobileMenu');
+      const mobileMenu = document.getElementById('mobileMenu');
+      
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+        mobileMenuButton.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      });
+      
+      closeMobileMenu.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+      
+      // Close mobile menu when clicking a link
+      document.querySelectorAll('#mobileMenu a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          mobileMenuButton.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+      
+      // Dark Mode Toggle
+      const darkModeToggle = document.getElementById('darkModeToggle');
+      const mobileDarkModeToggle = document.getElementById('mobileDarkModeToggle');
+      
+      // Check for saved preference or respect OS preference
+      if (localStorage.getItem('darkMode') === 'true' || 
+          (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+      
+      function toggleDarkMode() {
+        document.documentElement.classList.toggle('dark');
+        const isDark = document.documentElement.classList.contains('dark');
+        localStorage.setItem('darkMode', isDark);
+      }
+      
+      darkModeToggle.addEventListener('click', toggleDarkMode);
+      mobileDarkModeToggle.addEventListener('click', toggleDarkMode);
+      
+      // Animated Counters
+      const counters = document.querySelectorAll('.counter');
+      const speed = 200; // The lower the slower
+      
+      const animateCounters = () => {
+        counters.forEach(counter => {
+          const updateCount = () => {
+            const target = +counter.getAttribute('data-target');
+            const count = +counter.innerText;
+            const inc = target / speed;
+            
+            if (count < target) {
+              counter.innerText = Math.ceil(count + inc);
+              setTimeout(updateCount, 15);
+            } else {
+              counter.innerText = target;
+            }
+          };
+          updateCount();
+        });
+      };
+      
+      // Trigger counter animation when section is in view
+      const impactSection = document.getElementById('dampak');
+      let countersAnimated = false;
+      
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !countersAnimated) {
+            animateCounters();
+            countersAnimated = true;
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+      
+      if (impactSection) {
+        observer.observe(impactSection);
+      }
+      
+      // Form Submission (Prevent Default for Demo)
+      const contactForm = document.querySelector('form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          alert('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.');
+          contactForm.reset();
+        });
+      }
+      
+      // Smooth Scroll for Anchor Links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
